@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { v4 } from 'uuid';
 import * as Scroll from 'react-scroll';
 import { fetchUsers } from '../../services/api';
 import { UserCard } from '../../components/UserCard/UserCard';
@@ -33,7 +32,7 @@ const Tweets = () => {
         <LinkHome to={'/'}>Back</LinkHome>
         <List>
           {users?.map(user => (
-            <UserCard key={v4()} {...user} />
+            <UserCard key={user.id} {...user} />
           ))}
         </List>
         <ButtonWrap>

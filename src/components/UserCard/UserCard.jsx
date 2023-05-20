@@ -30,7 +30,7 @@ export const UserCard = user => {
   };
 
   return (
-    <CardItem key={id}>
+    <CardItem>
       <LogoWrap>
         <img src={Logo} alt="logo" />
       </LogoWrap>
