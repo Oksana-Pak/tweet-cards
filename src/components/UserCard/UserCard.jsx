@@ -1,32 +1,24 @@
-import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Avatar from 'react-avatar';
 
 import Logo from '../../images/logo.svg';
 import { Button } from '../Button/Button';
 import { CardItem, LogoWrap, LineWrap, AvatarWrap, AvatarImg, UserList } from './UserCard.styled';
 
-export const UserCard = user => {
-  const { id, user: username, tweets, avatar, followers } = user;
-
-  const [following, setFollowing] = useState(
-    () => JSON.parse(localStorage.getItem(username))?.following ?? false
-  );
-  const [followersNum, setFollowers] = useState(
-    () => JSON.parse(localStorage.getItem(username))?.followersNum ?? followers
-  );
-
-  useEffect(() => {
-    localStorage.setItem(username, JSON.stringify({ following, followersNum }));
-  }, [username, following, followersNum]);
+export const UserCard = ({ onChangeUser, ...user }) => {
+  const userCopy = { ...user };
+  const { user: username, tweets, avatar, status, followers } = userCopy;
 
   const handleFollow = () => {
-    if (following) {
-      setFollowing(false);
-      setFollowers(followersNum - 1);
+    userCopy.status = !status;
+
+    if (userCopy.status) {
+      userCopy.followers = followers + 1;
     } else {
-      setFollowing(true);
-      setFollowers(followersNum + 1);
+      userCopy.followers = followers - 1;
     }
+
+    onChangeUser(userCopy);
   };
 
   return (
@@ -45,13 +37,17 @@ export const UserCard = user => {
 
       <UserList>
         <li>{tweets} tweets</li>
-        <li>{followersNum.toLocaleString()} followers</li>
+        <li>{followers.toLocaleString()} followers</li>
       </UserList>
       <Button
-        title={following ? 'following' : 'follow'}
+        title={status ? 'following' : 'follow'}
         onClick={handleFollow}
-        following={following}
+        following={status}
       ></Button>
     </CardItem>
   );
+};
+
+UserCard.propTypes = {
+  onChangeUser: PropTypes.func.isRequired,
 };

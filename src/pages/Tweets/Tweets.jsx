@@ -8,22 +8,34 @@ import { Button } from '../../components/Button/Button';
 import { Loader } from '../../components/Loader/Loader';
 
 const Tweets = () => {
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1);
+  const [users, setUsers] = useState(() => JSON.parse(localStorage.getItem('users')) ?? []);
+  const [page, setPage] = useState(() => JSON.parse(localStorage.getItem('page')) ?? 1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    fetchUsers(page).then(dataUsers => {
-      setUsers(prevUsers => [...prevUsers, ...dataUsers]);
-      setLoading(false);
-    });
+    const localPage = JSON.parse(localStorage.getItem('page'));
+    if (localPage !== page) {
+      fetchUsers(page).then(dataUsers => {
+        setUsers(prevUsers => [...prevUsers, ...dataUsers]);
+        setLoading(false);
+      });
+    }
   }, [page]);
+
+  useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('page', JSON.stringify(page));
+  }, [users, page]);
 
   const handleButtonClick = () => {
     setPage(prevState => prevState + 1);
     const scroll = Scroll.animateScroll;
     scroll.scrollMore(500, { duration: 1000 });
+  };
+
+  const changeLocalUser = newUser => {
+    const updatedUsers = users.map(user => (newUser.id === user.id ? newUser : user));
+    setUsers(updatedUsers);
   };
 
   return (
@@ -32,14 +44,14 @@ const Tweets = () => {
         <LinkHome to={'/'}>Back</LinkHome>
         <List>
           {users?.map(user => (
-            <UserCard key={user.id} {...user} />
+            <UserCard key={user.id} onChangeUser={changeLocalUser} {...user} />
           ))}
         </List>
         <ButtonWrap>
-          {users.length <= 12 && !loading && (
+          {users.length < 12 && !loading && (
             <Button title="Load More" onClick={handleButtonClick} hover />
           )}
-          {users.length <= 12 && loading && <Loader />}
+          {users.length < 12 && loading && <Loader />}
         </ButtonWrap>
       </Container>
     </Section>
