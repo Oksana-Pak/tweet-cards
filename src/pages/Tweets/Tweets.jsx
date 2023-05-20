@@ -15,6 +15,7 @@ const Tweets = () => {
   useEffect(() => {
     const localPage = JSON.parse(localStorage.getItem('page'));
     if (localPage !== page) {
+      setLoading(true);
       fetchUsers(page).then(dataUsers => {
         setUsers(prevUsers => [...prevUsers, ...dataUsers]);
         setLoading(false);

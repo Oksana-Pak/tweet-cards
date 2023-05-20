@@ -2,23 +2,24 @@ import PropTypes from 'prop-types';
 import Avatar from 'react-avatar';
 
 import Logo from '../../images/logo.svg';
+// import { updateUser } from '../../services/api';
 import { Button } from '../Button/Button';
 import { CardItem, LogoWrap, LineWrap, AvatarWrap, AvatarImg, UserList } from './UserCard.styled';
 
 export const UserCard = ({ onChangeUser, ...user }) => {
-  const userCopy = { ...user };
-  const { user: username, tweets, avatar, status, followers } = userCopy;
+  const newUser = { ...user };
+  const { user: username, tweets, avatar, status, followers } = newUser;
 
   const handleFollow = () => {
-    userCopy.status = !status;
+    newUser.status = !status;
 
-    if (userCopy.status) {
-      userCopy.followers = followers + 1;
+    if (newUser.status) {
+      newUser.followers = followers + 1;
     } else {
-      userCopy.followers = followers - 1;
+      newUser.followers = followers - 1;
     }
-
-    onChangeUser(userCopy);
+    onChangeUser(newUser);
+    // updateUser(newUser);
   };
 
   return (

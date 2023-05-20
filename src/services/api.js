@@ -11,3 +11,15 @@ export const fetchUsers = async page => {
     throw new Error('Something wrong. Try again.');
   }
 };
+
+// export const updateUser = async user => {
+//   console.log(user.id);
+//   console.log(user);
+//   try {
+//     const response = await axios.put(`/user/${user.id}`, { ...user });
+//     return response.data;
+//   } catch (error) {
+//     errorMessage('Something wrong. Try again.');
+//     throw new Error('Something wrong. Try again.');
+//   }
+// };
