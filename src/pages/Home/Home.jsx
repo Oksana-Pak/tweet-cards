@@ -7,9 +7,7 @@ export const Home = () => {
       <Container>
         <TitleWrap>
           <Title>Welcome</Title>
-          <SubTitle>
-            to the website where you can find tweet cards and follow famous people
-          </SubTitle>
+          <SubTitle>to the aplication "Tweet Cards"</SubTitle>
           <LinkStyled to={'/tweets'}>Here you can find tweet cards</LinkStyled>
         </TitleWrap>
       </Container>

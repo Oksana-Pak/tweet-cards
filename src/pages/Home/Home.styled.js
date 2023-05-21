@@ -24,6 +24,7 @@ export const SubTitle = styled.h2`
 
 export const LinkStyled = styled(Link)`
   font-size: 26px;
+  text-decoration: underline;
   &:hover {
     color: #5736a3;
   }
