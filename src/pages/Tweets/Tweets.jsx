@@ -70,11 +70,10 @@ const Tweets = () => {
 
       case 'follow':
         changeFilterUser('follow', false);
-
         break;
+
       case 'followings':
         changeFilterUser('followings', true);
-
         break;
 
       default:

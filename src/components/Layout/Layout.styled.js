@@ -13,6 +13,7 @@ export const Container = styled.div`
 export const NavItem = styled(NavLink)`
   margin-right: 30px;
   font-weight: 700;
+  opacity: 0.7;
   &.active {
     color: #471ca9;
   }
