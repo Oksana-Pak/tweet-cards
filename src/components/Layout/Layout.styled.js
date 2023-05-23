@@ -26,10 +26,10 @@ export const NavItem = styled(NavLink)`
 `;
 
 export const Main = styled.main`
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 100px);
 `;
 export const Footer = styled.footer`
-  padding: 25px;
+  padding: 15px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 6px -1px, rgba(0, 0, 0, 0.06) 0px -2px 4px -1px;
 `;
