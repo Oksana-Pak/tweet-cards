@@ -40,6 +40,7 @@ export const UserCard = ({ onChangeUser, ...userData }) => {
         title={status ? 'following' : 'follow'}
         onClick={handleFollow}
         following={status}
+        hover
       ></Button>
     </CardItem>
   );

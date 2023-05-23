@@ -26,4 +26,12 @@ export const ButtonStyled = styled.button`
     background: #5cd3a8;
   }`
       : null}
+  ${p =>
+    p.hover && !p.following
+      ? `&:hover {
+    background: #5cd3a8;
+  }`
+      : `&:hover {
+    background: #ebd8ff;
+  }`}
 `;
