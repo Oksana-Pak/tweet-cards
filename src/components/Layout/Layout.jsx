@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Loader } from '../Loader/Loader';
-import { Nav, Container, NavItem } from './Layout.styled';
+import { Nav, Container, NavItem, Main, Footer } from './Layout.styled';
 
 export const Layout = () => {
   return (
@@ -17,11 +17,14 @@ export const Layout = () => {
           </nav>
         </Container>
       </Nav>
-      <main>
+      <Main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
+      <Footer>
+        <p>© 2023 Tweet Cards - Test task. Created by Oksana Pak</p>
+      </Footer>
       <ToastContainer />
     </>
   );
