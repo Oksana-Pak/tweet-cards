@@ -261,9 +261,9 @@ Error generating stack: `+l.message+`
     color: #471ca9;
   }
 `,r1=Be.main`
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 100px);
 `,o1=Be.footer`
-  padding: 25px;
+  padding: 15px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 6px -1px, rgba(0, 0, 0, 0.06) 0px -2px 4px -1px;
 `,l1=()=>H.jsxs(H.Fragment,{children:[H.jsx(n1,{children:H.jsx(sh,{children:H.jsxs("nav",{children:[H.jsx(gf,{to:"/",end:!0,children:"Home"}),H.jsx(gf,{to:"tweets",children:"Tweets"})]})})}),H.jsx(r1,{children:H.jsx(E.Suspense,{fallback:H.jsx(t1,{}),children:H.jsx(C0,{})})}),H.jsx(o1,{children:H.jsx("p",{children:"© 2023 Tweet Cards - Test task. Created by Oksana Pak"})}),H.jsx(Ia,{})]}),i1=Be.section`
@@ -287,4 +287,4 @@ Error generating stack: `+l.message+`
   &:hover {
     color: #5736a3;
   }
-`,f1=()=>H.jsx(i1,{children:H.jsx(sh,{children:H.jsxs(a1,{children:[H.jsx(u1,{children:"Welcome"}),H.jsx(s1,{children:"to the aplication Tweet Cards"}),H.jsx(c1,{to:"/tweets",children:"Here you can find tweet cards"})]})})}),d1=E.lazy(()=>D0(()=>import("./Tweets-58cde1c8.js"),["assets/Tweets-58cde1c8.js","assets/Tweets-f22192eb.css"])),p1=()=>H.jsx(T0,{children:H.jsxs(Sr,{path:"/",element:H.jsx(l1,{}),children:[H.jsx(Sr,{index:!0,element:H.jsx(f1,{})}),H.jsx(Sr,{path:"tweets",element:H.jsx(d1,{})}),H.jsx(Sr,{path:"*",element:H.jsx(E0,{to:"/"})})]})});Fi.createRoot(document.getElementById("root")).render(H.jsx(F.StrictMode,{children:H.jsx(R0,{basename:"/tweet-cards",children:H.jsx(p1,{})})}));export{sh as C,Up as L,fe as Q,F as R,Ig as a,m1 as b,h1 as c,t1 as d,vf as g,H as j,ev as m,E as r,Be as s,g1 as w};
+`,f1=()=>H.jsx(i1,{children:H.jsx(sh,{children:H.jsxs(a1,{children:[H.jsx(u1,{children:"Welcome"}),H.jsx(s1,{children:"to the aplication Tweet Cards"}),H.jsx(c1,{to:"/tweets",children:"Here you can find tweet cards"})]})})}),d1=E.lazy(()=>D0(()=>import("./Tweets-88eb8cbd.js"),["assets/Tweets-88eb8cbd.js","assets/Tweets-f22192eb.css"])),p1=()=>H.jsx(T0,{children:H.jsxs(Sr,{path:"/",element:H.jsx(l1,{}),children:[H.jsx(Sr,{index:!0,element:H.jsx(f1,{})}),H.jsx(Sr,{path:"tweets",element:H.jsx(d1,{})}),H.jsx(Sr,{path:"*",element:H.jsx(E0,{to:"/"})})]})});Fi.createRoot(document.getElementById("root")).render(H.jsx(F.StrictMode,{children:H.jsx(R0,{basename:"/tweet-cards",children:H.jsx(p1,{})})}));export{sh as C,Up as L,fe as Q,F as R,Ig as a,m1 as b,h1 as c,t1 as d,vf as g,H as j,ev as m,E as r,Be as s,g1 as w};
